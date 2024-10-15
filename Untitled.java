@@ -138,7 +138,7 @@ function UserTasks() {
                     Supprimer
                   </button>
                   <button
-                    onClick={() => (task)}
+                    onClick={() => handleUpdateTask(task)}
                     className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-1 px-2 rounded mr-2"
                   >
                     Mettre à jour
