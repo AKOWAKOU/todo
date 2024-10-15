@@ -8,7 +8,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # Installer les dépendances
-RUN npm install
+RUN npm install && npm install axios cors 
 
 # Copier le reste des fichiers de l'application
 COPY . .
