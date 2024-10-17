@@ -6,7 +6,7 @@ function TaskStatus({ taskId, currentStatus }) {
 
   const updateStatus = async (newStatus) => {
     try {
-      await axios.patch(`http://localhost:3002/tasks/${taskId}/status`, { status: newStatus });
+      await axios.patch(`http://localhost:5002/tasks/${taskId}/status`, { status: newStatus });
       setStatus(newStatus);
       console.log(`Statut de la tâche mis à jour : ${newStatus}`);
     } catch (error) {

@@ -14,7 +14,7 @@ function TaskUpdate({ task, onUpdate, onCancel }) {
   const handleSubmitUpdate = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:3002/tasks/${task._id}`, updatedTask);
+      await axios.put(`http://localhost:5002/tasks/${task._id}`, updatedTask);
       onUpdate(); // Appeler la fonction pour rafraîchir les tâches
     } catch (error) {
       console.error('Erreur lors de la mise à jour de la tâche :', error);

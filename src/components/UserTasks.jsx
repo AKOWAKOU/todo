@@ -15,7 +15,7 @@ function UserTasks() {
   const handleFetchTasks = async () => {
     if (userId) {
       try {
-        const response = await axios.get(`http://localhost:3002/tasks/user/${userId}`);
+        const response = await axios.get(`http://localhost:5002/tasks/user/${userId}`);
         setUserTasks(response.data);
       } catch (error) {
         console.error('Erreur lors de la récupération des tâches de l’utilisateur :', error);
@@ -42,7 +42,7 @@ function UserTasks() {
 
   const handleDeleteTask = async (taskId) => {
     try {
-      await axios.delete(`http://localhost:3002/tasks/${taskId}`);
+      await axios.delete(`http://localhost:5002/tasks/${taskId}`);
       setUserTasks(userTasks.filter(task => task._id !== taskId)); // Mettre à jour les tâches
     } catch (error) {
       console.error('Erreur lors de la suppression de la tâche :', error);
@@ -57,7 +57,7 @@ function UserTasks() {
   const handleSubmitChangeStatus = async () => {
     if (taskToChangeStatus) {
       try {
-        await axios.patch(`http://localhost:3002/tasks/${taskToChangeStatus._id}/status`, { status: newStatus });
+        await axios.patch(`http://localhost:5002/tasks/${taskToChangeStatus._id}/status`, { status: newStatus });
         handleFetchTasks(); // Rafraîchir les tâches après le changement de statut
         setTaskToChangeStatus(null); // Réinitialiser l'état après le changement de statut
       } catch (error) {
