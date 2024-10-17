@@ -6,7 +6,7 @@ function TaskForm({ onTaskCreated }) { // Ajouter la prop onTaskCreated
   const [description, setDescription] = useState('');
   const [assignedTo, setAssignedTo] = useState('');
   const [dueDate, setDueDate] = useState('');
-  const [status, setStatus] = useState('à faire');
+  const [status, setStatus] = useState('');
 
   const createTask = async (e) => {
     e.preventDefault();

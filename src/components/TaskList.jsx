@@ -6,7 +6,7 @@ function TaskList() {
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/tasks')
+    axios.get('http://localhost:3002/tasks')
       .then(response => setTasks(response.data))
       .catch(error => console.error('Erreur lors de la récupération des tâches :', error));
   }, []);

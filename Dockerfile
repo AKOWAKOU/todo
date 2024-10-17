@@ -1,5 +1,5 @@
 # Étape 1 : Construire l'application
-FROM node:16 AS build
+FROM node:20
 
 # Définir le répertoire de travail
 WORKDIR /app
@@ -8,22 +8,13 @@ WORKDIR /app
 COPY package*.json ./
 
 # Installer les dépendances
-RUN npm install && npm install axios cors 
+RUN npm install 
 
 # Copier le reste des fichiers de l'application
 COPY . .
 
-# Construire l'application pour la production
-RUN npm run build
+# Exposer le port sur lequel l'application sera servie
+EXPOSE 3000
 
-# Étape 2 : Servir l'application
-FROM nginx:alpine
-
-# Copier les fichiers construits vers le dossier de NGINX
-COPY --from=build /app/build /usr/share/nginx/html
-
-# Exposer le port sur lequel NGINX sera en écoute
-EXPOSE 80
-
-# Commande pour démarrer NGINX
-CMD ["nginx", "-g", "daemon off;"]
+# Commande pour démarrer le serveur de développement intégré de React
+CMD ["npm", "start"]

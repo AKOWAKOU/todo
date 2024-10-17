@@ -9,7 +9,7 @@ function UserTasks() {
   const [showAddTaskForm, setShowAddTaskForm] = useState(false);
   const [taskToUpdate, setTaskToUpdate] = useState(null);
   const [taskToChangeStatus, setTaskToChangeStatus] = useState(null); // État pour le changement de statut
-  const [updatedTask, setUpdatedTask] = useState({ title: '', description: '', assigned_to: '', due_date: '', status: 'à faire' });
+  const [/*updatedTask*/,setUpdatedTask] = useState({ title: '', description: '', assigned_to: '', due_date: '', status: 'à faire' });
   const [newStatus, setNewStatus] = useState('à faire'); // État pour le nouveau statut
 
   const handleFetchTasks = async () => {
@@ -39,19 +39,6 @@ function UserTasks() {
       status: task.status
     });
   };
-
-  // const handleSubmitUpdate = async (e) => {
-  //   e.preventDefault();
-  //   if (taskToUpdate) {
-  //     try {
-  //       await axios.put(`http://localhost:3002/tasks/${taskToUpdate._id}`, updatedTask);
-  //       handleFetchTasks(); // Rafraîchir les tâches après la mise à jour
-  //       setTaskToUpdate(null); // Réinitialiser l'état après la mise à jour
-  //     } catch (error) {
-  //       console.error('Erreur lors de la mise à jour de la tâche :', error);
-  //     }
-  //   }
-  // };
 
   const handleDeleteTask = async (taskId) => {
     try {
@@ -141,7 +128,7 @@ function UserTasks() {
                     Update
                   </button>
                   <button onClick={() => handleChangeStatus(task)} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded mr-2">
-                    Change Status
+                    ChangeStatus
                   </button>
                 </td>
               </tr>
